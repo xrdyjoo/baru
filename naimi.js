@@ -285,7 +285,6 @@ const totalhittd = JSON.parse(fs.readFileSync('./database/todaycmd.json'))[0].to
 // AntiLink
 if (isAntilink) {
 if (!isBotAdmins) return
-}
 if (budy.includes(`https://chat.whatsapp.com/`)) {
 bvl = `*GROUP LINK DETECTOR*\n\nAdmin telah mengirim link, admin dibebaskan untuk mengirim link apapun`
 if (isAdmins) return reply(bvl)
@@ -297,6 +296,7 @@ setTimeout( () => {
   naimi.groupParticipantsUpdate(m.chat, [kice], 'remove').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
 }, 3000)
 } else {
+}
 }
 const createSerial = (size) => {
 return crypto.randomBytes(size).toString('hex').slice(0, size)
@@ -3664,7 +3664,8 @@ if (!isRegister) return reply(blomdaftar) & sendButMessage (sender, daftar1, daf
     if (isBan) return reply(mess.banned)
  	if (checklimitUser(sender) <= 0) return reply(limitabis) 
   reply(mess.wait)
- ini_result = await getBuffer(`http://hadi-api.herokuapp.com/api/loli`)
+  var anu = await fetchJson(`https://loli-api.glitch.me/api/v1/twintails`)
+ ini_result = await getBuffer(anu.url)
  buttons655 = [
     {buttonId: `${command}`, buttonText: {displayText: 'NEXT'}, type: 1}
 ]
